@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:newsapp2024/resources/app_color.dart';
 
+// ignore: must_be_immutable
 class CustomTextWidget extends StatelessWidget {
   final String text;
   final double fontsize;
