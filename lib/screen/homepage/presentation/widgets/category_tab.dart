@@ -127,7 +127,7 @@ class _CategoryTabState extends State<CategoryTab>
           'Health',
           'Travel',
           'Science',
-          'Fashion'
+          'Fashion,'
         ];
         widget.onCategorySelected(categories[index]);
       },
