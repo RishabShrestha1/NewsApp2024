@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:newsapp2024/resources/app_color.dart';
 import 'package:newsapp2024/resources/dimensions.dart';
@@ -10,7 +9,6 @@ import 'package:newsapp2024/screen/homepage/presentation/bloc/home_state.dart';
 import 'package:newsapp2024/screen/homepage/presentation/widgets/category_tab.dart';
 import 'package:newsapp2024/screen/homepage/presentation/widgets/news_tile.dart';
 import 'package:newsapp2024/screen/homepage/presentation/widgets/shimmer_homescreen.dart';
-import 'package:shimmer/shimmer.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -22,7 +20,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     context.read<NewsBloc>().add(FetchNews());
   }
@@ -111,19 +108,22 @@ class _HomeScreenState extends State<HomeScreen> {
                   Expanded(
                     child: ListView.builder(
                       itemCount: state.newsModel.articles.length,
+                      shrinkWrap: true,
                       itemBuilder: (context, index) {
                         if (index < state.newsModel.articles.length) {
                           final article = state.newsModel.articles[index];
                           return Padding(
                             padding: const EdgeInsets.symmetric(vertical: 8.0),
                             child: NewsTile(
-                                title: article.title,
-                                imageUrl: article.urlToImage ?? '',
-                                source: article.source.name,
-                                time: DateTime.now()
-                                    .difference(article.publishedAt)
-                                    .inHours
-                                    .toString()),
+                              title: article.title,
+                              imageUrl: article.urlToImage ?? '',
+                              source: article.source.name,
+                              time: DateTime.now()
+                                  .difference(article.publishedAt)
+                                  .inHours
+                                  .toString(),
+                              content: article.content,
+                            ),
                           );
                         } else {
                           return null;

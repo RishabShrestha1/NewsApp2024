@@ -16,41 +16,43 @@ class LoadingHomescreen extends StatelessWidget {
             width: double.infinity,
             height: deviceHeight * 0.05,
             color: Colors.white,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+            ),
           ),
           const SizedBox(height: 10),
           Container(
             width: double.infinity,
             height: deviceHeight * 0.05,
             color: Colors.white,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+            ),
           ),
           const SizedBox(height: 10),
           ListView.builder(
             shrinkWrap: true,
-
             physics: const NeverScrollableScrollPhysics(),
-            itemCount: 10, // You can adjust this number
+            itemCount: 10,
             itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8.0),
-                child: ListTile(
-                  leading: Container(
-                    width: deviceWidth * 0.1,
-                    height: deviceHeight * 0.1,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                  title: Container(
-                    width: double.infinity,
-                    height: 16,
+              return ListTile(
+                leading: Container(
+                  height: deviceWidth * 0.14,
+                  width: deviceWidth * 0.14,
+                  decoration: BoxDecoration(
                     color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                  subtitle: Container(
-                    width: deviceWidth * 0.3,
-                    height: 12,
-                    color: Colors.white,
-                  ),
+                ),
+                title: Container(
+                  width: double.infinity,
+                  height: 20,
+                  color: Colors.white,
+                ),
+                subtitle: Container(
+                  width: deviceWidth * 0.3,
+                  height: 15,
+                  color: Colors.white,
                 ),
               );
             },

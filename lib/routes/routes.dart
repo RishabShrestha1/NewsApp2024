@@ -11,8 +11,18 @@ final route = GoRouter(
       builder: (context, state) => HomeScreen(),
     ),
     GoRoute(
-        path: '/details',
-        name: 'details',
-        builder: (context, state) => DetailsScreen()),
+      path: '/details',
+      name: 'details',
+      builder: (context, state) {
+        final extra = state.extra as Map<String, dynamic>;
+        return DetailsScreen(
+          title: extra['title'],
+          source: extra['source'],
+          time: extra['time'],
+          imageUrl: extra['imageUrl'],
+          content: extra['content'],
+        );
+      },
+    ),
   ],
 );
