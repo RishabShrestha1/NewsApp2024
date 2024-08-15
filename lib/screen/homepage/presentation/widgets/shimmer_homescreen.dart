@@ -14,7 +14,7 @@ class LoadingHomescreen extends StatelessWidget {
         children: [
           Container(
             width: double.infinity,
-            height: deviceHeight * 0.05,
+            height: deviceHeight * 0.02,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               color: Colors.white,
@@ -23,7 +23,7 @@ class LoadingHomescreen extends StatelessWidget {
           const SizedBox(height: 10),
           Container(
             width: double.infinity,
-            height: deviceHeight * 0.05,
+            height: deviceHeight * 0.03,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               color: Colors.white,
@@ -31,7 +31,6 @@ class LoadingHomescreen extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           ListView.builder(
-            shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             itemCount: 10,
             itemBuilder: (context, index) {

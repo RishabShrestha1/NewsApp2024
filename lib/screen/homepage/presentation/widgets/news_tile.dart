@@ -1,10 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:newsapp2024/resources/app_color.dart';
-import 'package:newsapp2024/resources/dimensions.dart';
 import 'package:newsapp2024/resources/font_size.dart';
 import 'package:newsapp2024/screen/homepage/presentation/widgets/category_label.dart';
 import 'package:newsapp2024/screen/homepage/presentation/widgets/source_logo.dart';
@@ -47,11 +46,11 @@ class NewsTile extends StatelessWidget {
       child: Row(
         children: [
           SizedBox(
-            width: deviceWidth * 0.01,
+            width: 8.sp,
           ),
           Container(
-            height: 96,
-            width: 96,
+            height: 96.sp,
+            width: 96.sp,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               shape: BoxShape.rectangle,
@@ -66,8 +65,8 @@ class NewsTile extends StatelessWidget {
                       baseColor: Colors.grey[300]!,
                       highlightColor: Colors.grey[100]!,
                       child: Container(
-                        height: 96,
-                        width: 96,
+                        height: 96.sp,
+                        width: 96.sp,
                         decoration: BoxDecoration(
                           color: Colors.grey,
                           borderRadius: BorderRadius.circular(10),
@@ -78,7 +77,7 @@ class NewsTile extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(width: 10),
+          SizedBox(width: 5.sp),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -88,6 +87,7 @@ class NewsTile extends StatelessWidget {
                   fontSize: 13,
                   fontWeight: FontWeight.w500,
                 ),
+                SizedBox(height: 4.sp),
                 Text(
                   title,
                   style: const TextStyle(
@@ -97,25 +97,25 @@ class NewsTile extends StatelessWidget {
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
-                const SizedBox(height: 4),
+                SizedBox(height: 5.sp),
                 Row(
                   children: [
                     SourceLogo(
                       source: source,
                       radius: 10,
                     ),
-                    const SizedBox(width: 4),
+                    SizedBox(width: 4.sp),
                     CustomTextWidget(
                       text: source,
                       fontsize: fontSize13,
                       fontweight: FontWeight.w600,
                     ),
-                    const SizedBox(width: 8),
+                    SizedBox(width: 8.sp),
                     SvgPicture.asset(
                       'assets/icons/time.svg',
                       height: 12,
                     ),
-                    const SizedBox(width: 5),
+                    SizedBox(width: 5.sp),
                     CustomTextWidget(
                         text: '${time}h ago ',
                         fontsize: fontSize13,

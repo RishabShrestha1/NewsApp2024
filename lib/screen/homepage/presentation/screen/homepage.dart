@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:newsapp2024/resources/app_color.dart';
 import 'package:newsapp2024/resources/dimensions.dart';
@@ -35,24 +36,30 @@ class _HomeScreenState extends State<HomeScreen> {
           height: 30,
         ),
         actions: [
-          Container(
-            margin: const EdgeInsets.symmetric(horizontal: 7, vertical: 5),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(10),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey[300]!,
-                  blurRadius: 5,
-                  offset: const Offset(0, 1),
+          Padding(
+            padding: const EdgeInsets.only(right: 8.0),
+            child: Container(
+              height: 32.sp,
+              width: 32.sp,
+              margin: const EdgeInsets.symmetric(horizontal: 7, vertical: 5),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey[300]!,
+                    blurRadius: 5,
+                    offset: const Offset(0, 1),
+                  ),
+                ],
+              ),
+              child: IconButton(
+                onPressed: () {},
+                icon: SvgPicture.asset(
+                  'assets/icons/notification.svg',
+                  height: 20,
+                  width: 18.sh,
                 ),
-              ],
-            ),
-            child: IconButton(
-              onPressed: () {},
-              icon: SvgPicture.asset(
-                'assets/icons/notification.svg',
-                height: 20,
               ),
             ),
           ),
@@ -104,7 +111,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   const CategoryTab(),
-                  const SizedBox(height: 20),
+                  SizedBox(height: 8.sp),
                   Expanded(
                     child: ListView.builder(
                       itemCount: state.newsModel.articles.length,
@@ -113,7 +120,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         if (index < state.newsModel.articles.length) {
                           final article = state.newsModel.articles[index];
                           return Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 8.0),
+                            padding: const EdgeInsets.symmetric(vertical: 16.0),
                             child: NewsTile(
                               title: article.title,
                               imageUrl: article.urlToImage ?? '',
