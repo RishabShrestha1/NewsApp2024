@@ -95,7 +95,7 @@ class DetailsScreen extends StatelessWidget {
                     fontsize: fontSize16,
                     fontweight: FontWeight.w400,
                   ),
-                  SizedBox(height: 18.sp),
+                  SizedBox(height: 30.sp),
                   CustomTextWidget(
                       text: content,
                       fontsize: fontSize16,

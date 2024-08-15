@@ -16,7 +16,7 @@ class NewsTile extends StatelessWidget {
   final String imageUrl;
   final String content;
   final String description;
-  String? categorylabel;
+  final String categorylabel;
   NewsTile({
     super.key,
     required this.title,
@@ -25,7 +25,7 @@ class NewsTile extends StatelessWidget {
     required this.time,
     required this.content,
     required this.description,
-    this.categorylabel,
+    required this.categorylabel,
   });
 
   @override

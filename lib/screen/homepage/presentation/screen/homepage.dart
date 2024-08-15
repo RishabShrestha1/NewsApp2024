@@ -73,39 +73,38 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24.0),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8.0),
-                child: Row(
-                  children: [
-                    Text(
-                      'Latest',
-                      style: TextStyle(
-                        fontSize: deviceHeight * 0.02,
-                        fontWeight: FontWeight.w600,
-                      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: Row(
+                children: [
+                  Text(
+                    'Latest',
+                    style: TextStyle(
+                      fontSize: deviceHeight * 0.02,
+                      fontWeight: FontWeight.w600,
                     ),
-                    const Spacer(),
-                    Text(
-                      'See all',
-                      style: TextStyle(
-                        fontSize: deviceHeight * 0.02,
-                        color: AppColor.graybodytext,
-                      ),
+                  ),
+                  const Spacer(),
+                  Text(
+                    'See all',
+                    style: TextStyle(
+                      fontSize: deviceHeight * 0.02,
+                      color: AppColor.graybodytext,
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-              SizedBox(height: 8.sp),
-              CategoryTab(onCategorySelected: onCategoryTap),
-              SizedBox(height: 8.sp),
-              BlocConsumer<NewsBloc, NewsState>(
+            ),
+            SizedBox(height: 8.sp),
+            CategoryTab(onCategorySelected: onCategoryTap),
+            SizedBox(height: 8.sp),
+            Expanded(
+              child: BlocConsumer<NewsBloc, NewsState>(
                 listener: (context, state) {
                   if (state is NewsError) {
                     ScaffoldMessenger.of(context).showSnackBar(
@@ -120,13 +119,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     return Center(child: Text('Error: ${state.message}'));
                   } else if (state is NewsLoaded) {
                     return ListView.builder(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
                       itemCount: state.newsModel.articles.length,
                       itemBuilder: (context, index) {
                         final article = state.newsModel.articles[index];
                         return Padding(
-                          padding: EdgeInsets.symmetric(vertical: 10.0.sp),
+                          padding: EdgeInsets.symmetric(vertical: 14.0.sp),
                           child: NewsTile(
                             title: article.title,
                             imageUrl: article.urlToImage ?? '',
@@ -134,7 +131,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             time: (DateTime.now()
                                         .difference(article.publishedAt)
                                         .inHours) >
-                                    26
+                                    24
                                 ? '${DateTime.now().difference(article.publishedAt).inDays}d'
                                 : '${DateTime.now().difference(article.publishedAt).inHours}h',
                             content: article.content,
@@ -149,8 +146,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   }
                 },
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
