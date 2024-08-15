@@ -7,56 +7,34 @@ class LoadingHomescreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Shimmer.fromColors(
-      baseColor: Colors.grey[300]!,
-      highlightColor: Colors.grey[100]!,
-      child: Column(
-        children: [
-          Container(
-            width: double.infinity,
-            height: deviceHeight * 0.02,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.white,
-            ),
-          ),
-          const SizedBox(height: 10),
-          Container(
-            width: double.infinity,
-            height: deviceHeight * 0.03,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.white,
-            ),
-          ),
-          const SizedBox(height: 10),
-          ListView.builder(
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: 10,
-            itemBuilder: (context, index) {
-              return ListTile(
-                leading: Container(
-                  height: deviceWidth * 0.14,
-                  width: deviceWidth * 0.14,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
-                title: Container(
-                  width: double.infinity,
-                  height: 20,
-                  color: Colors.white,
-                ),
-                subtitle: Container(
-                  width: deviceWidth * 0.3,
-                  height: 15,
-                  color: Colors.white,
-                ),
-              );
-            },
-          ),
-        ],
+    return Container(
+      height: deviceHeight * 0.9, // Adjust this value as needed
+      child: Shimmer.fromColors(
+        baseColor: Colors.grey[300]!,
+        highlightColor: Colors.grey[100]!,
+        child: ListView.builder(
+          physics: NeverScrollableScrollPhysics(),
+          itemCount: 10,
+          itemBuilder: (context, index) {
+            return ListTile(
+              leading: Container(
+                height: 50,
+                width: 50,
+                color: Colors.white,
+              ),
+              title: Container(
+                width: double.infinity,
+                height: 16,
+                color: Colors.white,
+              ),
+              subtitle: Container(
+                width: double.infinity,
+                height: 12,
+                color: Colors.white,
+              ),
+            );
+          },
+        ),
       ),
     );
   }

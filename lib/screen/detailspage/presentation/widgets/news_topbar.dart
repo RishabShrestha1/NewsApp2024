@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsapp2024/resources/app_color.dart';
-import 'package:newsapp2024/resources/dimensions.dart';
 import 'package:newsapp2024/screen/homepage/presentation/widgets/source_logo.dart';
 import 'package:newsapp2024/widget/text_widget.dart';
 
@@ -29,7 +28,7 @@ class NewsDetailsTopBar extends StatelessWidget {
                   selectedcolour: AppColor.blacktext,
                 ),
                 CustomTextWidget(
-                  text: '${time}h ago',
+                  text: '$time ago',
                   fontsize: 14,
                   fontweight: FontWeight.w400,
                 ),

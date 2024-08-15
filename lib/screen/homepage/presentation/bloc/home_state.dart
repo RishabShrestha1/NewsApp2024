@@ -12,7 +12,8 @@ class NewsLoading extends NewsState {
 
 class NewsLoaded extends NewsState {
   final NewsModel newsModel;
-  NewsLoaded(this.newsModel);
+  final String? category;
+  NewsLoaded(this.newsModel, {this.category});
 }
 
 class NewsError extends NewsState {

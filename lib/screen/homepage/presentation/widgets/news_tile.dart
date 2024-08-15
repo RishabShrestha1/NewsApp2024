@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
@@ -17,7 +16,8 @@ class NewsTile extends StatelessWidget {
   final String imageUrl;
   final String content;
   final String description;
-  const NewsTile({
+  String? categorylabel;
+  NewsTile({
     super.key,
     required this.title,
     required this.imageUrl,
@@ -25,6 +25,7 @@ class NewsTile extends StatelessWidget {
     required this.time,
     required this.content,
     required this.description,
+    this.categorylabel,
   });
 
   @override
@@ -59,7 +60,7 @@ class NewsTile extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
               child: CachedNetworkImage(
                 imageUrl: imageUrl,
-                fit: BoxFit.cover,
+                fit: BoxFit.fill,
                 placeholder: (context, url) => Center(
                   child: Shimmer.fromColors(
                       baseColor: Colors.grey[300]!,
@@ -73,7 +74,14 @@ class NewsTile extends StatelessWidget {
                         ),
                       )),
                 ),
-                errorWidget: (context, url, error) => const Icon(Icons.error),
+                errorWidget: (context, url, error) => const Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(Icons.error),
+                    Text('Server issue'),
+                  ],
+                ),
               ),
             ),
           ),
@@ -82,11 +90,13 @@ class NewsTile extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                NewsCategoryLabel(
-                  source: source,
-                  fontSize: 13,
-                  fontWeight: FontWeight.w500,
-                ),
+                categorylabel == 'All'
+                    ? NewsCategoryLabel(
+                        source: source,
+                        fontSize: 13,
+                        fontWeight: FontWeight.w500,
+                      )
+                    : Text(categorylabel ?? 'None'),
                 SizedBox(height: 4.sp),
                 Text(
                   title,
@@ -117,7 +127,7 @@ class NewsTile extends StatelessWidget {
                     ),
                     SizedBox(width: 5.sp),
                     CustomTextWidget(
-                        text: '${time}h ago ',
+                        text: '$time ago ',
                         fontsize: fontSize13,
                         fontweight: FontWeight.w400),
                     const Spacer(),
