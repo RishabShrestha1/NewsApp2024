@@ -16,11 +16,12 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
     try {
       emit(NewsLoading());
       final response = await apiHandler(
-          "${ApiConst.baseUrl}${ApiConst.everything}?${ApiConst.sources}=${ApiConst.currentsource}&apiKey=${ApiConst.apiKey}",
+          "${ApiConst.baseUrl}${ApiConst.topHeadlines}?${ApiConst.sources}=${ApiConst.currentsource}&apiKey=${ApiConst.apiKey}",
           'Get');
-      log("Current Url= ${ApiConst.baseUrl}${ApiConst.everything}?${ApiConst.sources}=${ApiConst.currentsource}&apiKey=${ApiConst.apiKey}",
-          name: 'NewsBloc');
-      log("Response: $response", name: 'NewsBloc');
+      // log("Current Url= ${ApiConst.baseUrl}${ApiConst.everything}?${ApiConst.sources}=${ApiConst.currentsource}&apiKey=${ApiConst.apiKey}",
+      //     name: 'NewsBloc');
+
+      // log("Response: $response", name: 'NewsBloc');
       emit(NewsLoaded(NewsModel.fromJson(response)));
     } catch (e) {
       emit(NewsError(e.toString()));

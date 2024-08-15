@@ -4,5 +4,5 @@ class ApiConst {
   static const String topHeadlines = 'top-headlines';
   static const String everything = 'everything';
   static const String sources = 'sources';
-  static const String currentsource = 'bbc-news,usa-today';
+  static const String currentsource = 'bbc-news,cnn,usa-today';
 }
