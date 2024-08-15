@@ -21,17 +21,17 @@ class ImageBanner extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
         child: CachedNetworkImage(
           imageUrl: imageUrl,
-          fit: BoxFit.cover,
+          fit: BoxFit.fill,
           height: 200,
           width: double.infinity,
           placeholder: (context, url) => Center(
             child: Shimmer.fromColors(
-                child: Container(
+                baseColor: Colors.grey[300]!,
+                highlightColor: Colors.grey[100]!,
+                child: SizedBox(
                   height: deviceHeight * 0.3,
                   width: deviceWidth,
-                ),
-                baseColor: Colors.grey[300]!,
-                highlightColor: Colors.grey[100]!),
+                )),
           ),
           errorWidget: (context, url, error) => const Icon(Icons.error),
         ),

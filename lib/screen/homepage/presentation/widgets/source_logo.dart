@@ -11,7 +11,8 @@ class SourceLogo extends StatelessWidget {
     return source.contains('USA')
         ? CircleAvatar(
             radius: radius,
-            backgroundImage: AssetImage('assets/icons/usa_today_logo.jpeg'),
+            backgroundImage:
+                const AssetImage('assets/icons/usa_today_logo.jpeg'),
           )
         : ClipOval(
             clipBehavior: Clip.antiAlias,

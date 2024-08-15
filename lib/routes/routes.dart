@@ -21,6 +21,7 @@ final route = GoRouter(
           time: extra['time'],
           imageUrl: extra['imageUrl'],
           content: extra['content'],
+          description: extra['description'],
         );
       },
     ),

@@ -5,8 +5,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:newsapp2024/resources/app_color.dart';
 import 'package:newsapp2024/resources/dimensions.dart';
+import 'package:newsapp2024/resources/font_size.dart';
 import 'package:newsapp2024/screen/homepage/presentation/widgets/category_label.dart';
 import 'package:newsapp2024/screen/homepage/presentation/widgets/source_logo.dart';
+import 'package:newsapp2024/widget/text_widget.dart';
 import 'package:shimmer/shimmer.dart';
 
 class NewsTile extends StatelessWidget {
@@ -15,6 +17,7 @@ class NewsTile extends StatelessWidget {
   final String time;
   final String imageUrl;
   final String content;
+  final String description;
   const NewsTile({
     super.key,
     required this.title,
@@ -22,6 +25,7 @@ class NewsTile extends StatelessWidget {
     required this.source,
     required this.time,
     required this.content,
+    required this.description,
   });
 
   @override
@@ -36,6 +40,7 @@ class NewsTile extends StatelessWidget {
             'time': time,
             'imageUrl': imageUrl,
             'content': content,
+            'description': description,
           },
         );
       },
@@ -100,13 +105,10 @@ class NewsTile extends StatelessWidget {
                       radius: 10,
                     ),
                     const SizedBox(width: 4),
-                    Text(
-                      source,
-                      style: const TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w600,
-                        color: AppColor.graybodytext,
-                      ),
+                    CustomTextWidget(
+                      text: source,
+                      fontsize: fontSize13,
+                      fontweight: FontWeight.w600,
                     ),
                     const SizedBox(width: 8),
                     SvgPicture.asset(
@@ -114,13 +116,10 @@ class NewsTile extends StatelessWidget {
                       height: 12,
                     ),
                     const SizedBox(width: 5),
-                    Text(
-                      '${time}h ago ',
-                      style: const TextStyle(
-                        fontSize: 12,
-                        color: AppColor.graybodytext,
-                      ),
-                    ),
+                    CustomTextWidget(
+                        text: '${time}h ago ',
+                        fontsize: fontSize13,
+                        fontweight: FontWeight.w400),
                     const Spacer(),
                     const Icon(
                       Icons.more_horiz_sharp,

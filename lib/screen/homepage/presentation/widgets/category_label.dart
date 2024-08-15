@@ -1,6 +1,5 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsapp2024/resources/app_color.dart';
 
 class NewsCategoryLabel extends StatelessWidget {
@@ -24,6 +23,8 @@ class NewsCategoryLabel extends StatelessWidget {
       style: TextStyle(
         fontSize: fontSize,
         fontWeight: fontWeight,
+        fontFamily: 'Poppins',
+        letterSpacing: 0.12.sp,
         color: AppColor.graybodytext,
       ),
     );

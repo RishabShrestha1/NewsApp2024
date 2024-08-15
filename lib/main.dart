@@ -4,10 +4,12 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:newsapp2024/resources/dimensions.dart';
 import 'package:newsapp2024/routes/routes.dart';
 import 'package:newsapp2024/screen/homepage/presentation/bloc/home_bloc.dart';
-import 'package:newsapp2024/screen/homepage/presentation/screen/homepage.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    const MyApp(),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -16,7 +18,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     deviceHeight = MediaQuery.of(context).size.height;
     deviceWidth = MediaQuery.of(context).size.width;
-    return MultiBlocProvider(
+    return ScreenUtilInit(
+      designSize: Size(deviceWidth, deviceHeight),
+      child: MultiBlocProvider(
         providers: [
           BlocProvider(create: (context) => NewsBloc()),
         ],
@@ -29,10 +33,14 @@ class MyApp extends StatelessWidget {
               elevation: 0,
             ),
             scaffoldBackgroundColor: Colors.white,
-            textTheme: GoogleFonts.poppinsTextTheme(),
+            textTheme: GoogleFonts.poppinsTextTheme(
+              Theme.of(context).textTheme,
+            ),
             useMaterial3: true,
           ),
           routerConfig: route,
-        ));
+        ),
+      ),
+    );
   }
 }

@@ -123,6 +123,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   .inHours
                                   .toString(),
                               content: article.content,
+                              description: article.description ?? '',
                             ),
                           );
                         } else {
