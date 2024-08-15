@@ -3,13 +3,14 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class SourceLogo extends StatelessWidget {
   final String source;
-  const SourceLogo({super.key, required this.source});
+  final double radius;
+  const SourceLogo({super.key, required this.source, required this.radius});
 
   @override
   Widget build(BuildContext context) {
     return source.contains('USA')
-        ? const CircleAvatar(
-            radius: 10,
+        ? CircleAvatar(
+            radius: radius,
             backgroundImage: AssetImage('assets/icons/usa_today_logo.jpeg'),
           )
         : ClipOval(
@@ -18,7 +19,7 @@ class SourceLogo extends StatelessWidget {
               source.contains('BBC')
                   ? 'assets/icons/bbc.svg'
                   : 'assets/icons/cnn.svg',
-              height: 20,
+              height: 2 * radius,
             ),
           );
   }

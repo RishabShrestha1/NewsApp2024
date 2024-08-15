@@ -15,18 +15,18 @@ class LoadingHomescreen extends StatelessWidget {
           Container(
             width: double.infinity,
             height: deviceHeight * 0.05,
-            color: Colors.white,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
+              color: Colors.white,
             ),
           ),
           const SizedBox(height: 10),
           Container(
             width: double.infinity,
             height: deviceHeight * 0.05,
-            color: Colors.white,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
+              color: Colors.white,
             ),
           ),
           const SizedBox(height: 10),

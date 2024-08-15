@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:newsapp2024/resources/app_color.dart';
+import 'package:newsapp2024/resources/dimensions.dart';
+import 'package:newsapp2024/screen/detailspage/presentation/widgets/image_banner.dart';
+import 'package:newsapp2024/screen/detailspage/presentation/widgets/news_topbar.dart';
+import 'package:newsapp2024/screen/homepage/presentation/widgets/category_label.dart';
+import 'package:newsapp2024/screen/homepage/presentation/widgets/source_logo.dart';
 
 class DetailsScreen extends StatelessWidget {
   final String title;
@@ -39,35 +45,37 @@ class DetailsScreen extends StatelessWidget {
         ],
       ),
       body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            CachedNetworkImage(
-              imageUrl: imageUrl,
-              fit: BoxFit.cover,
-              height: 200,
-              width: double.infinity,
-              placeholder: (context, url) =>
-                  const Center(child: CircularProgressIndicator()),
-              errorWidget: (context, url, error) => const Icon(Icons.error),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 24.0,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              NewsDetailsTopBar(source: source, time: time),
+              ImageBanner(imageUrl: imageUrl),
+              Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  NewsCategoryLabel(
+                    source: source,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                  ),
                   Text(
                     title,
+                    style: const TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.w600,
+                      color: AppColor.blacktext,
+                    ),
                   ),
-                  const SizedBox(height: 8),
-                  Text('Source: $source'),
-                  Text('Published: $time hours ago'),
                   const SizedBox(height: 16),
                   Text(content),
                 ],
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

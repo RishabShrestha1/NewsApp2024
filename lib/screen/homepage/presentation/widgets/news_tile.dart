@@ -29,7 +29,7 @@ class NewsTile extends StatelessWidget {
     return InkWell(
       onTap: () {
         context.pushNamed(
-          '/details',
+          'details',
           extra: {
             'title': title,
             'source': source,
@@ -78,7 +78,11 @@ class NewsTile extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                NewsCategoryLabel(Source: source),
+                NewsCategoryLabel(
+                  source: source,
+                  fontSize: 13,
+                  fontWeight: FontWeight.w500,
+                ),
                 Text(
                   title,
                   style: const TextStyle(
@@ -91,7 +95,10 @@ class NewsTile extends StatelessWidget {
                 const SizedBox(height: 4),
                 Row(
                   children: [
-                    SourceLogo(source: source),
+                    SourceLogo(
+                      source: source,
+                      radius: 10,
+                    ),
                     const SizedBox(width: 4),
                     Text(
                       source,

@@ -27,6 +27,7 @@ class _CategoryTabState extends State<CategoryTab>
     return TabBar(
       controller: tabController,
       isScrollable: true,
+      overlayColor: WidgetStateProperty.all(Colors.transparent),
       labelPadding: EdgeInsets.only(right: deviceWidth * 0.045),
       labelStyle: const TextStyle(
         fontSize: 16,
