@@ -23,7 +23,7 @@ class CustomTextWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      text,
+      text.contains('Geo') ? 'Nat Geo' : text,
       style: TextStyle(
         fontSize: fontsize,
         fontWeight: fontweight,
