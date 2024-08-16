@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsapp2024/resources/dimensions.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -22,7 +23,7 @@ class ImageBanner extends StatelessWidget {
         child: CachedNetworkImage(
           imageUrl: imageUrl,
           fit: BoxFit.fill,
-          height: 200,
+          height: 200.sp,
           width: double.infinity,
           placeholder: (context, url) => Center(
             child: Shimmer.fromColors(

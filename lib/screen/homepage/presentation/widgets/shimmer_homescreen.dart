@@ -15,7 +15,7 @@ class LoadingHomescreen extends StatelessWidget {
         baseColor: Colors.grey[300]!,
         highlightColor: Colors.grey[100]!,
         child: ListView.builder(
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           itemCount: 10,
           itemBuilder: (context, index) {
             return ListTile(

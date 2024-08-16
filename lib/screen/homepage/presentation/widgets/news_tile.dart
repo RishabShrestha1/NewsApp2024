@@ -17,7 +17,7 @@ class NewsTile extends StatelessWidget {
   final String content;
   final String description;
   final String categorylabel;
-  NewsTile({
+  const NewsTile({
     super.key,
     required this.title,
     required this.imageUrl,
@@ -96,7 +96,7 @@ class NewsTile extends StatelessWidget {
                         fontSize: 13,
                         fontWeight: FontWeight.w500,
                       )
-                    : Text(categorylabel ?? 'None'),
+                    : Text(categorylabel),
                 SizedBox(height: 4.sp),
                 Text(
                   title,

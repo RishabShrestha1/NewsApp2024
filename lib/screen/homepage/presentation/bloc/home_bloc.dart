@@ -30,7 +30,7 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
   Future<void> fetchNewsByCategory(
       FetchNewsByCategory event, Emitter<NewsState> emit) async {
     DateTime today = DateTime.now();
-    DateTime twoDaysAgo = today.subtract(Duration(days: 2));
+    DateTime twoDaysAgo = today.subtract(const Duration(days: 2));
 
     String formattedDate =
         "${twoDaysAgo.toLocal().year}-${twoDaysAgo.toLocal().month.toString().padLeft(2, '0')}-${twoDaysAgo.toLocal().day.toString().padLeft(2, '0')}";

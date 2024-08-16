@@ -46,7 +46,7 @@ class DetailsScreen extends StatelessWidget {
                 onPressed: () {},
                 icon: Icon(
                   Icons.share_outlined,
-                  size: 24,
+                  size: 24.sp,
                   weight: 24.sp,
                 ),
               ),
@@ -54,7 +54,7 @@ class DetailsScreen extends StatelessWidget {
                 onPressed: () {},
                 icon: Icon(
                   Icons.more_vert,
-                  size: 24,
+                  size: 24.sp,
                   weight: 24.sp,
                 ),
               ),
